@@ -36,14 +36,14 @@ export default class Dashboard extends Component {
         let display = houses.map(house => {
             return (
                 <div className='house-parent' key={house.id} > 
-                    <House id={house.id} name={house.name} address={house.address} city={house.city} state={house.state} zip={house.zip} deleteFn={this.deleteHouse}/>
+                    <House id={house.id} name={house.name} address={house.address} city={house.city} stateAbv={house.stateAbv} zip={house.zip} deleteFn={this.deleteHouse}/>
                 </div>
             )
         })
         return (
             <div className='dash-parent'>
                 <div className='dash-content'>
-                    <Link to='/wizard' >
+                    <Link to='/wizard/step1' >
                         <button className='addNew'>Add New Property</button>
                     </Link>
                     {display}

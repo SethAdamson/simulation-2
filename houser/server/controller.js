@@ -6,9 +6,9 @@ module.exports = {
     },
     postHouse: (req, res) => {
         const dbInstance = req.app.get('db');
-        const { name, address, city, state, zip } = req.body;
+        const { name, address, city, stateAbv, zip, img, mortgage, rent } = req.body;
 
-        dbInstance.create_house([ name, address, city, state, zip ])
+        dbInstance.create_house([ name, address, city, stateAbv, zip, img, mortgage, rent ])
         .then(() => res.status(200).send('Posted'))
         .catch(() => res.status(500).send('Error'));
     },
