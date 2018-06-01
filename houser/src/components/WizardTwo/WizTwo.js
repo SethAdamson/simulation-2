@@ -15,6 +15,12 @@ class WizardTwo extends Component {
         this.handleImg = this.handleImg.bind(this);
     }
 
+    componentDidMount(){
+        this.setState({
+            img: this.props.img,
+        })
+    }
+
     handleImg(e){
         this.setState({
             [e.target.name]: e.target.value
@@ -22,11 +28,12 @@ class WizardTwo extends Component {
     }
 
     render(){
-        console.log(this.state);
+        let {updateImg} = this.props;
+        // console.log(this.state);
         return (
             <div className='wizard-two-parent'>
                 <div className='wizard-two-content'>
-                    <input className='img' name='img' value={this.state.img} onChange={this.handleChange}/>
+                    <input className='img' name='img' value={this.state.img} onChange={this.handleImg}/>
                     <Link to='/wizard/step1' >
                         <button className='pre-2' onClick={(e) => updateImg(this.state.img)}>Previous Step</button>
                     </Link>      

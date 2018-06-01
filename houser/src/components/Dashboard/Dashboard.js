@@ -36,7 +36,16 @@ export default class Dashboard extends Component {
         let display = houses.map(house => {
             return (
                 <div className='house-parent' key={house.id} > 
-                    <House id={house.id} name={house.name} address={house.address} city={house.city} stateAbv={house.stateAbv} zip={house.zip} deleteFn={this.deleteHouse}/>
+                    <House id={house.id} 
+                        name={house.name} 
+                        address={house.address} 
+                        city={house.city} 
+                        stateAbv={house.stateAbv} 
+                        zip={house.zip} 
+                        img={house.img}
+                        mortgage={house.mortgage}
+                        rent={house.rent}
+                        deleteFn={this.deleteHouse}/>
                 </div>
             )
         })

@@ -3,15 +3,16 @@ let initialState = {
         address: '',
         city: '',
         stateAbv: '',
-        zip: null,
+        zip: undefined,
         img: '',
         mortgage: 0,
         rent: 0,
-}
+};
 
 const UPDATE_LOCATION = 'UPDATE_LOCATION';
 const UPDATE_IMG = 'UPDATE_IMG';
 const UPDATE_PAYMENT = 'UPDATE_PAYMENT';
+const CLEAR_DATA = 'CLEAR_DATA';
 
 function reducer(state=initialState, action){
     switch(action.type){
@@ -21,10 +22,12 @@ function reducer(state=initialState, action){
             return Object.assign({}, state, {img: action.payload});
         case UPDATE_PAYMENT:
             return Object.assign({}, state, {mortgage: action.payload.mortgage, rent: action.payload.rent});
+        case CLEAR_DATA:
+            return initialState;
         default:
             return state;
     }
-}
+};
 
 export function updateLocation (name, address, city, stateAbv, zip) {
     return {
@@ -37,13 +40,13 @@ export function updateLocation (name, address, city, stateAbv, zip) {
             zip
         }
     }
-}
+};
 export function updateImg (img) {
     return {
         type: UPDATE_IMG,
         payload: img
     }
-}
+};
 export function updatePayment (mortgage, rent) {
     return {
         type: UPDATE_PAYMENT,
@@ -52,6 +55,25 @@ export function updatePayment (mortgage, rent) {
             rent
         }
     }
-}
+};
+export function clearData () {
+    return {
+        type: CLEAR_DATA,
+        payload: {
+            name: '',
+            address: '',
+            city: '',
+            stateAbv: '',
+            zip: undefined,
+            img: '',
+            mortgage: 0,
+            rent: 0
+        }
+    }
+};
+
+// let newState = reducer(initialState, updateImg('https://'))
+
+// console.log(newState);
 
 export default reducer;

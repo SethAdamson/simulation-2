@@ -13,10 +13,20 @@ class WizardOne extends Component {
             address: '',
             city: '',
             stateAbv: '',
-            zip: null,
+            zip: undefined,
         }
 
         this.handleChange = this.handleChange.bind(this);
+    }
+
+    componentDidMount(){
+        this.setState({
+            name: this.props.name,
+            address: this.props.address,
+            city: this.props.city,
+            stateAbv: this.props.stateAbv,
+            zip: this.props.zip,
+        })
     }
 
     handleChange(e){
@@ -27,8 +37,7 @@ class WizardOne extends Component {
 
     render(){
         let {name, address, city, stateAbv, zip} = this.state;
-        // let {updateLocation} = this.props;
-        console.log(this.props);
+        let {updateLocation} = this.props;
         return (
             <div className='wizard-one-parent'>
                 <div className='wizard-one-content'>
