@@ -42,8 +42,8 @@ class WizardThree extends Component {
 
 
     render(){
-        // console.log(this.state);
-        // console.log(this.props);
+        console.log(this.state);
+        console.log(this.props);
         let {mortgage, rent} = this.state;
         let {updatePayment} = this.props;
         if(this.state.redirect){
@@ -52,7 +52,9 @@ class WizardThree extends Component {
         return (
             <div className='wizard-three-parent'>
                 <div className='wizard-three-content'>
+                    Mortgage
                     <input className='mortgage' name='mortgage' onChange={this.handleMoney}/>
+                    Rent
                     <input className='rent' name='rent' onChange={this.handleMoney}/>
                     <Link to='/wizard/step2' >
                         <button className='pre-3' onClick={(e) => updatePayment(mortgage, rent)}>Previous Step</button>

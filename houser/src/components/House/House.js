@@ -1,17 +1,27 @@
 import React from 'react';
+import './House.css';
+import deleteicon from '../../image/delete_button.png'
 
 export default function House(props){
     return (
         <div className='house-content'>
-            <img src={props.img} />
-            <h1>Property Name: {props.name}</h1>
-            <h1>Address: {props.address}</h1>
-            <h1>City: {props.city}</h1>
-            <h1>State: {props.stateAbv}</h1>
-            <h1>Zip: {props.zip}</h1>
-            <h1>Mortgage: {props.mortgage}</h1>
-            <h1>Rent: {props.rent}</h1>
-            <button className='delete'onClick={() => props.deleteFn(props.id)}>Delete</button>
+            <div className='house-detail'>
+                {/* <div className='house-img' style={`background-image: url(${props.img});`}></div>  */}
+                <img src={props.img} 
+                    alt='House'/>
+            </div> 
+            <div className='house-detail'>
+                <p>Property Name: {props.name}</p>
+                <p>Address: {props.address}</p>
+                <p>City: {props.city}</p>
+                <p>State: {props.stateAbv}</p>
+                <p>Zip: {props.zip}</p>
+            </div> 
+            <div className='house-detail'>
+                <p>Mortgage: {props.mortgage}</p>
+                <p>Rent: {props.rent}</p>
+            </div> 
+            <img src={deleteicon} alt='delete' className='delete' onClick={() => props.deleteFn(props.id)}/>
         </div> 
     )
 }

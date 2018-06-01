@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import axios from 'axios';
 import {updateImg} from '../../ducks/reducer'
 
 class WizardTwo extends Component {
@@ -33,6 +32,7 @@ class WizardTwo extends Component {
         return (
             <div className='wizard-two-parent'>
                 <div className='wizard-two-content'>
+                    Image URL
                     <input className='img' name='img' value={this.state.img} onChange={this.handleImg}/>
                     <Link to='/wizard/step1' >
                         <button className='pre-2' onClick={(e) => updateImg(this.state.img)}>Previous Step</button>

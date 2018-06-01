@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
 import {connect} from 'react-redux';
 import {updateLocation} from '../../ducks/reducer';
 
@@ -41,16 +40,31 @@ class WizardOne extends Component {
         return (
             <div className='wizard-one-parent'>
                 <div className='wizard-one-content'>
-                    <input className='name' name='name' 
-                        value={name} onChange={this.handleChange}/>
-                    <input className='address' name='address' 
-                        value={address} onChange={this.handleChange}/>
-                    <input className='city' name='city' 
-                        value={city} onChange={this.handleChange}/>
-                    <input className='state' name='stateAbv' 
-                        value={stateAbv} onChange={this.handleChange}/>
-                    <input className='zip' name='zip' 
-                        value={zip} onChange={this.handleChange}/>
+                    <div className='wiz_input_box'> 
+                        <p>Property Name</p>
+                        <input className='name' name='name' 
+                            value={name} onChange={this.handleChange}/>
+                    </div>
+                    <div className='wiz_input_box'> 
+                        <p>Address</p>
+                        <input className='address' name='address' 
+                            value={address} onChange={this.handleChange}/>
+                    </div>
+                    <div className='wiz_input_box'> 
+                        <p>City</p>
+                        <input className='city' name='city' 
+                            value={city} onChange={this.handleChange}/>
+                    </div>
+                    <div className='wiz_input_box'> 
+                        <p>State</p>
+                        <input className='state' name='stateAbv' 
+                            value={stateAbv} onChange={this.handleChange}/>
+                    </div>
+                    <div className='wiz_input_box'>
+                        <p>Zip</p>
+                        <input className='zip' name='zip' 
+                            value={zip} onChange={this.handleChange}/>
+                    </div>
                     <Link to='/wizard/step2' >
                         <button className='next-1' onClick={(e) => updateLocation(name, address, city, stateAbv, zip)}>Next Step</button>
                     </Link>                    
